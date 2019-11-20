@@ -7,7 +7,41 @@
   </head>
   <body>
     <div id="root">
-      <h1>Hola mundo!</h1>
+      <header>Comunica seguro
+      </header>
+      <main>
+          <h3> Cifra tus mensajes antes de enviarlos o descifra uno recibido</h3>
+        <form id="formulary" class="form">
+
+        <!------------------------{caja 1: offset}---------------------------> 
+
+        <div class="keyBox">
+          <h2>1. Acuerda una clave con tu abogado</h2>
+          <div class="offset"><label for="offset">Clave numérica:</label>
+          <input type="number" id="key" placeholder="1"></div>
+          
+        </div>
+       
+        <!---------------------{caja 2: texto inicial}------------------------>
+
+        <div class="initialTextarea"> 
+          <h1>2. Ingresa tu mensaje</h1>
+          <textarea name="text" id="initialText" placeholder="Tu texto aquí"></textarea>
+          <button type="button" id="btnEncode"> Cifrar </button>
+          <button type="button" id="btnDecode"> Descifrar </button>
+        </div>  
+
+        <!---------------------{caja 3: texto final}-------------------------->
+
+        <div class="finalTextarea"> 
+          <h1>3. Mensaje transformado</h1>
+          <textarea name="finalText" id="finalText"></textarea>
+          <h1>Reinicia para volver a cifrar o descifrar</h1>
+          <a href="index.html"><button type="button" id="btnReload"> Reiniciar </button></a>
+        </div>
+        </form>
+      </main>
+      <footer>Para consultas o sugerencias por favor contáctanos a <b>correo@comunicaseguro.cl</b></footer>
     </div>
     <script src="cipher.js"></script>
     <script src="index.js"></script>
