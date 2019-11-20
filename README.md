@@ -1,262 +1,46 @@
-# Cifrado César
 
-Cifrar significa codificar. El [cifrado César](https://en.wikipedia.org/wiki/Caesar_cipher) es uno de los primeros métodos de cifrado conocidos. El emperador romano Julio César lo usaba para enviar órdenes secretas a sus generales en los campos de batalla.
+# Definición del producto
+"Comunica seguro" es una aplicación para transformar el contenido de mensajes de una forma que solo el usuario y su interlocutor puedan entenderlo. Está dirigido a abogados y clientes, pero es apta para todo tipo de usuario.
+La idea de “Comunica seguro” surgió tras recordar que en Chile hubo casos de procesos legales en que, para bien o para mal, se filtraban correos electrónicos o conversaciones por redes sociales que contenían información relevante que trajo problemas a las personas involucradas. Es por esto que surge la necesidad de aumentar el nivel de seguridad a la hora de comunicarnos de forma remota con otras personas, sobre todo si se trata de los temas que se hablan con abogados.
 
-![caeser-cipher](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Caesar3.svg/2000px-Caesar3.svg.png)
+## Usuarios
+Los principales usuarios de este producto son todas las personas que se comunican con sus abogados de forma remota, ya sea correo electrónico o redes sociales. Usarán la aplicación para transformar (o cifrar) los mensajes que quieran enviar, de acuerdo a una clave numérica personalizada. De esta forma se aumenta la confidencialidad de dichos correos o mensajes de texto. De la misma forma podrán leer (o descifrar) mensajes que hayan recibido, y sólo podrán lograrlo si conocen la clave.
 
-El cifrado césar es una de las técnicas más simples para cifrar un mensaje. Es un tipo de cifrado por sustitución, es decir que cada letra del texto original es reemplazada por otra que se encuentra un número fijo de posiciones (desplazamiento) más adelante en el mismo alfabeto.
+### Objetivo
+Esta aplicación busca entregar mayor seguridad a la comunicación entre dos usuarios, ofreciéndoles una alternativa rápida de cifrar y descifrar sus mensajes. El usuario es anónimo ya que no se pide registro de ingreso ni ningún dato personal que pueda afectarlo.
 
-Por ejemplo, si usamos un desplazamiento (_offset_) de 3 posiciones:
+#### Diseño
+Pensando en que los clientes de abogados son un grupo amplio de personas, el diseño de la aplicación fue pensado justamente para todo público. Por lo tanto, se optó por una estructura simple y rápida de entender, centrada en la división de los 3 pasos que el usuario deberá realizar al hacer uso de ella. Esta idea fue cambiando a medida que se realizó testeo de usabilidad.
+Inicialmente la aplicación mostraba los pasos a seguir de a uno en la pantalla, no incluía botones y las instrucciones se encontraban ocultas en un ícono. Sin embargo, los testeos de usabilidad revelaron que la falta de botones hacía que la aplicación fuera menos intuitiva, y por otro lado las instrucciones no fueron visitadas por los usuarios. Finalmente se decidió dividir las instrucciones y dejarlas como encabezados en cada paso, por lo que ya no era necesario mostrar en la pantalla un paso a la vez, lo que además no permitiría observar los datos ingresados previamente cuando se llega al paso final. 
+Además se agregó un botón de reinicio para limpiar los datos y asegurar un buen funcionamiento de la página en caso de volver a usarse el cifrado o descifrado.
+Finalmente se hicieron cambios en los tamaños de cada elemento ya que la última parte de la aplicación no se podía ver facilmente y enlenteció el uso de la aplicación.
 
-- La letra A se cifra como D.
-- La palabra CASA se cifra como FDVD.
-- Alfabeto sin cifrar: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
-- Alfabeto cifrado: D E F G H I J K L M N O P Q R S T U V W X Y Z A B C
+A continuación se encuentran las imágenes de los prototipos de baja y alta fidelidad, y la aplicación final.
 
-En la actualidad, todos los cifrados de sustitución simple se descifran con mucha facilidad y, aunque en la práctica no ofrecen mucha seguridad en la comunicación por sí mismos; el cifrado César sí puede formar parte de sistemas más complejos de codificación, como el cifrado Vigenère, e incluso tiene aplicación en el sistema ROT13.
+![Imagen de prototipo de baja fidelidad]
+(https://raw.githubusercontent.com/catalina-alzamora/SCL012-Cipher/master/images/prototipoBajaFidelidad.png).
 
-## Resumen del proyecto
+![Imagen de prototipo de alta fidelidad]
+(https://raw.githubusercontent.com/catalina-alzamora/SCL012-Cipher/master/images/prototipoAltaFidelidad.png).
 
-¿Qué tengo que hacer exactamente? En este proyecto crearás la primera aplicación web del _bootcamp_. Servirá para que el usuario pueda cifrar y descifrar un texto indicando un desplazamiento específico de caracteres (_offset_).
-
-La temática es libre. Tú debes pensar en qué situaciones de la vida real se necesitaría cifrar un mensaje y pensar en cómo debe ser esa experiencia de uso (qué pantallas, explicaciones, mensajes, colores, ¿marca?) etc. 
-
-Algunas ideas de ejemplo:
-
-- Crear claves seguras para el email.
-- Encriptar/cifrar una tarjeta de crédito.
-- Herramienta de mensajería interna de una organización de derechos humanos en una zona de conflicto.
-- Mensajería secreta para parejas.
+![Imagen de aplicación final]
+(https://raw.githubusercontent.com/catalina-alzamora/SCL012-Cipher/master/images/aplicacionFinal.png).
 
 
-## Consideraciones generales
+##### Requisitos
+Esta aplicación web se estructuró utilizando Visual Studio Code, con html, javascript y CSS. Se revisó principalmente en el navegador google Chrome.
+Los tests se realizaron en el terminal.
 
-- Este proyecto se debe resolver de manera individual.
-- El proyecto será entregado subiendo tu código a GitHub (commit/push) y la interfaz será desplegada usando GitHub pages. Si no sabes lo que es GitHub, no te preocupes, lo aprenderás durante este proyecto.
-- Tiempo para completarlo: El proyecto dura 2 semanas, trabaja con sprints y planificando tus tareas.
+![Imagen de resultados de test]
+(https://raw.githubusercontent.com/catalina-alzamora/SCL012-Cipher/master/images/test.png).
 
-## Objetivos de aprendizaje
+###### Modo de uso
+Antes de utilizar esta aplicación es necesario que el usuario acuerde la clave numérica secreta que tendrá con su interlocutor para que este último pueda descifrar el mensaje una vez lo reciba. 
 
-En este proyecto aprenderás a construir una aplicación web que interactúe con el usuario a través del navegador y la lógica basada en esa interacción. Dicho en palabras sencillas, aprenderás a:
-
-#### UX
-- Entender las **necesidades del usuario** y realizar propuestas para esas necesidades. 
-
-#### HTML y CSS
-- Mostrar elementos de formulario en la pantalla.
-
-#### DOM
-- Permitir al usuario interactuar (**eventos del DOM**) y hacer algo cuando ocurran dichos eventos (cifrar/descifrar).
-- Actualizar la pantalla con los resultados (**manipular el DOM**).
-
-#### JS
-- Manipular _**strings**_ (cadenas de texto).
-- Usar **control de flujo** (bucles, condicionales, ...).
-- **Implementar funciones** dada una descripción de su comportamiento.
-
-### Testing
-- Verificar tu implementación con **pruebas unitarias**.
-
-### Git y Github
-- Comandos de git (add | commit | pull | status | push).
-- Manejo de repositorios de GitHub (clone | fork | gh-pages).Manejo de repositorios de GitHub (clone | fork | gh-pages).
-
-### Buenas Pràcticas
-- Organizar tu tiempo y priorizar tareas en un entorno de **alta incertidumbre**.
-
-### Consideraciones.
-
-Usa este alfabeto simple (solamente mayúsculas y sin ñ):
-
-- A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
-
-### Sotf Skills o Habilidades Blandas
-- **Planificación, organización y manejo del tiempo** : Organizarse de manera general, haciendo una estimación aproximada de los tiempos que se necesitarán para la realización del proyecto. Conocer las ceremonias y artefactos ágiles (sprint planning, dailys, retrospectiva, tablero al menos, etc) a pesar de que no se utilicen con regularidad.
-- **Autoaprendizaje** : Demostrar interés y adquirir nuevos conocimientos autónomamente, estudiando de manera independiente, lo que se traduce, en que cuando es necesario, la estudiante buscará aclarar conceptos y resolver dudas sobre la materia.
-- **Presentaciones** : Utilizar ciertas estrategias para hablar en público (tono y ritmo de voz adecuado, contacto visual con el público, interacción con medios de presentación), que permitan asegurar un mediano entendimiento de la audiencia.
-- **Adaptabilidad** : Afrontar los cambios inesperados o nuevos desafíos con una actitud positiva, aunque no necesariamente se logre accionar o adaptarse de la mejor manera a los diferentes contextos.
-- **Solución de problemas** : Trabajar en la búsqueda y en la elaboración de soluciones alternativas a problemas de mediana complejidad.
-- **Responsabilidad** : Demostrar actitud de compromiso, reflejandolo en la entrega de trabajo a tiempo, llegando a la hora acordada y/o avisando cuando no se pueda asistir.
-- **Dar y recibir feedback** : Escuchar los comentarios y críticas de los demás de manera respetuosa, y/o comunicar a los demás las opiniones de forma constructiva.
-- **Comunicación eficaz** : Comunicar ideas a los demás cuando es necesario, aunque no siempre se fomenten de manera proactiva estas instancias de comunicación.
-
-#### Definición del producto
-
-En el README.md, cuéntanos cómo pensaste en los usuarios y cuál fue tu proceso para definir el producto final a nivel de experiencia y de interfaz.
-
-- Quiénes son los principales usuarios de producto.
-- Cuáles son los objetivos de estos usuarios en relación con tu producto.
-- Cómo crees que el producto que estás creando está resolviendo sus problemas.
-
-#### Interfaz de usuario (UI)
-
-La interfaz debe permitir al usuario:
-- Elegir un desplazamiento (_offset_) indicando cuántas posiciones queremos que el cifrado desplace cada caracter.
-- Insertar un mensaje (texto) que queremos cifrar.
-- Ver el resultado del mensaje cifrado.
-- Insertar un mensaje (texto) a descifrar.
-- Ver el resultado del mensaje descifrado.
-
-#### Scripts / Archivos
-
-* `README.md`: debe explicar cómo descargar, instalar y ejecutar la aplicación
-  así como una introducción a la aplicación, su funcionalidad y decisiones de
-  diseño que tomaron.
-* `src/index.html`: este es el punto de entrada a tu aplicación. Este archivo
-  debe contener tu _markup_ (HTML) e incluir el CSS y JavaScript necesario.
-* `src/cipher.js`: acá debes implementar el objeto cipher, el cual debe estar
-  _exportado_ en el objeto global (`window`). Este objeto (`cipher`) debe
-  contener dos métodos:
-  - `cipher.encode(offset, string)`: `offset` es el número de posiciones que
-    queremos mover a la derecha en el alfabeto y `string` el mensaje (texto)
-    que queremos cifrar.
-  - `cipher.decode(offset, string)`: `offset` es el número de posiciones que
-    queremos mover a la izquierda en el alfabeto y `string` el mensaje
-    (texto) que queremos descifrar.
-* `src/index.js`: acá debes escuchar eventos del DOM, invocar `cipher.encode()`
-  o `cipher.decode()` según sea necesario y actualizar el resultado en la UI.
-* `test/cipher.spec.js`: este archivo contiene algunos tests de ejemplo y acá
-  tendrás que implementar los tests para `cipher.encode()` y `cipher.decode()`.
-
-## Funcionalidad extra o “Hacker edition”
-
-Las secciones llamadas “Hacker Edition” son opcionales. Si **alcanzaste los objetivos de aprendizaje** y te queda tiempo, intenta realizar el hacker edition. Así podrás profundizar y/o ejercitar más sobre los objetivos de aprendizaje del proyecto.
-
-La descripción general de este proyecto no menciona qué pasaría con las letras minúsculas y otros caracteres (como espacios, puntuación, ñ, ...). El boilerplate incluye algunos tests (comentados en principio) que puedes usar como punto de partida para implementar el soporte para estos casos.
-
-Tampoco se menciona qué pasaría si el offset fuera negativo. Como parte del hacker edition te invitamos a explorar también esta caso por tu cuenta.
-
-## Vamos a los detalles. Consideraciones Técnicas
-
-La lógica del proyecto debe estar implementada completamente en JavaScript (ES6).
-En este proyecto NO está permitido usar librerías o frameworks, sólo
-[vanilla JavaScript](https://medium.com/laboratoria-how-to/vanillajs-vs-jquery-31e623bbd46e).
-
-No se debe utilizar la _pseudo-variable_ `this`.
-
-Los tests unitarios deben cubrir un mínimo del 70% de _statements_, _functions_
-y _lines_, y un mínimo del 50% de _branches_. El _boilerplate_ ya contiene el
-setup y configuración necesaria para ejecutar los tests (pruebas) así como _code
-coverage_ para ver el nivel de cobertura de los tests usando el comando `npm
-test`.
-
-El _boilerplate_ incluye tests (pruebas) de ejemplo como punto de partida.
-
-Para comenzar este proyecto tendrás que hacer un _fork_ y _clonar_ este
-repositorio que contiene el _boilerplate_.
-
-El _boilerplate_ contiene una estructura de archivos como punto de partida así
-como toda la configuración de dependencias y tests de ejemplo:
-
-```text
-./
-├── .editorconfig
-├── .eslintrc
-├── .gitignore
-├── README.md
-├── package.json
-├── src
-│   ├── cipher.js
-│   ├── index.html
-│   ├── index.js
-│   └── style.css
-└── test
-    ├── cipher.spec.js
-    ├── headless.js
-    └── index.html
-```
-
-El _boilerplate_ incluye tareas que ejecutan [eslint](https://eslint.org/) y
-[htmlhint](https://github.com/yaniswang/HTMLHint) para verificar el `HTML` y
-`JavaScript` con respecto a una guías de estilos. Ambas tareas se ejecutan
-automáticamente antes de ejecutar las pruebas (tests) cuando usamos el comando
-`npm run test`. En el caso de `JavaScript` estamos usando un archivo de
-configuración de `eslint` que se llama `.eslintrc` que contiene un mínimo de
-información sobre el parser que usar (qué version de JavaScript/ECMAScript), el
-entorno (browser en este caso) y las [reglas recomendadas (`"eslint:recommended"`)](https://eslint.org/docs/rules/).
-En cuanto a reglas/guías de estilo en sí,
-usaremos las recomendaciones _por defecto_ de tanto `eslint` como `htmlhint`.
+Ingresar a la aplicación por medio de un explorador web, idealmente Google Chrome. Se abrirá una página en la que se pueden encontrar tres cuadros o cajas ordenadas de arriba hacia abajo, que corresponde a su orden de uso. En la primera caja se escribe la clave numérica, luego en la siguiente caja se escribe el mensaje de texto que se desea enviar o leer. Bajo este texto se encuentran los botones de cifrar y descifrar, donde el usuario deberá hacer click en uno de ellos dependiendo si quiere enviar un mensaje cifrado (cifrar), o leer un mensaje recibido (descifrar). Finalmente está la última caja donde se visualizará el texto resultante, y que puede copiarse en el caso de quererse posteriormente enviar. Abajo se encuentra un botón de reiniciar, para cargar de nuevo la aplicación.
 
 
-## Pistas sobre cómo comenzar a trabajar en el proyecto
 
-1. Antes que nada, asegúrate de tener un :pencil: editor de texto en
-   condiciones, algo como [Atom](https://atom.io/) o
-   [Code](https://code.visualstudio.com/).
-2. Para ejecutar los comandos a continuación necesitarás una :shell:
-   [UNIX Shell](https://github.com/Laboratoria/curricula-js/tree/v2.x/topics/shell),
-   que es un programita que interpreta líneas de comando (command-line
-   interpreter) así como tener [git](https://github.com/Laboratoria/curricula-js/tree/v2.x/topics/scm/01-git)
-   instalado. Si usas un sistema operativo "UNIX-like", como GNU/Linux o MacOS,
-   ya tienes una _shell_ (terminal) instalada por defecto (y probablemente `git`
-   también). Si usas Windows puedes usar [Git bash](https://git-scm.com/download/win),
-   aunque recomendaría que consideres probar :penguin: GNU/Linux.
-3. Haz tu propio :fork_and_knife: [fork](https://help.github.com/articles/fork-a-repo/)
-   del repo de tu cohort, tus _coaches_ te compartirán un _link_ a un repo y te 
-   darán acceso de lectura en ese repo.
-4. :arrow_down: [Clona](https://help.github.com/articles/cloning-a-repository/)
-   tu _fork_ a tu computadora (copia local).
-5. 📦 Instala las dependencias del proyecto con el comando `npm
-   install`. Esto asume que has instalado [Node.js](https://nodejs.org/) (que
-   incluye [npm](https://docs.npmjs.com/)).
-6. Si todo ha ido bien, deberías poder ejecutar las :traffic_light:
-   pruebas unitarias (unit tests) con el comando `npm test`.
-7. A codear se ha dicho! :rocket:
 
-## Recursos y temas relacionados
 
-A continuación un video de Michelle que te lleva a través de la fórmula
-matemática del Cifrado César y un par de cosas más que debes saber para
-resolver este proyecto. ¡Escúchala con detenimiento y sigue sus consejos! :)
 
-[![tips caesar cipher](https://img.youtube.com/vi/zd8eVrXhs7Y/0.jpg)](https://www.youtube.com/watch?v=zd8eVrXhs7Y)
-
-Diseño de experiencia de usuario (User Experience Design):
-
-- Ideación
-- Prototipado (sketching)
-- Testeo e Iteración
-
-Desarrollo Front-end:
-
-* [Valores](https://lms.laboratoria.la/cohorts/scl-2019-10-bc-core-scl012/courses/javascript/01-basics/01-values-variables-and-types)
-* [Tipos](https://lms.laboratoria.la/cohorts/scl-2019-10-bc-core-scl012/courses/javascript/01-basics/01-values-variables-and-types)
-* [Variables](https://lms.laboratoria.la/cohorts/scl-2019-10-bc-core-scl012/courses/javascript/01-basics/02-variables)
-* [Control de flujo](https://lms.laboratoria.la/cohorts/scl-2019-10-bc-core-scl012/courses/javascript/02-flow-control/00-opening)
-* [Tests unitarios](https://lms.laboratoria.la/cohorts/scl-2019-10-bc-core-scl012/courses/javascript/11-testing/00-opening)
-* [Aprende más sobre `charCodeAt()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/charCodeAt)
-* [Aprende más sobre `String.fromCharCode()`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/fromCharCode)
-* [Aprende más sobre `ASCII`](http://conceptodefinicion.de/ascii/)
-* [Documentación de NPM](https://docs.npmjs.com/)
-
-Herramientas:
-- [GitHub y GitHub Pages](https://guides.github.com/)
-- [Guía de Scrum](https://www.scrumguides.org/docs/scrumguide/v1/scrum-guide-es.pdf): solamente para comenzar a entender cómo organizar tu trabajo.
-
-## Checklist
-Esta sección está para ayudarte a llevar un control de los objetivos de aprendizaje y las funcionalidades.
-
-* [ ] `README.md` incluye info sobre proceso y decisiones de diseño.
-* [ ] `README.md` explica claramente quiénes son los usuarios y su relación con
-  el producto.
-* [ ] `README.md` explica claramente cómo el producto soluciona los
-  problemas/necesidades de los usuarios.
-* [ ] Usa VanillaJS.
-* [ ] No utiliza `this`.
-* [ ] Implementa `cipher.encode`.
-* [ ] Implementa `cipher.decode`.
-* [ ] Pasa linter con configuración provista.
-* [ ] Pasa pruebas unitarias.
-* [ ] Pruebas unitarias cubren 70% de _statements_, _functions_ y _lines_, y un
-  mínimo del 50% de _branches_.
-* [ ] Interfaz permite elegir el `offset` o _desplazamiento_ a usar en el
-  cifrado/descifrado.
-* [ ] Interfaz permite escribir un texto para ser cifrado.
-* [ ] Interfaz muestra el resultado del cifrado correctamente.
-* [ ] Interfaz permite escribir un texto para ser descifrado.
-* [ ] Interfaz muestra el resultado del descifrado correctamente.
-
-### Funcionalidad extra o “Hacker edition”
-* [ ] Cifra/descifra minúsculas
-* [ ] Cifra/descifra _otros_ caracteres (espacios, puntuación, `ñ`, `á`, ...)
-* [ ] Permite usar un `offset` negativo.
